@@ -37,6 +37,10 @@ def homepage():
 
 @app.route('/predict', methods=['POST', 'GET'])
 def my_form_post():
+
+    print('Hello predict')
+
+    ''''
     if request.method == 'POST':
 
         import pdb
@@ -69,6 +73,7 @@ def my_form_post():
         return render_template('home.html', target = target, heart_defect = heart_defect)
     else:
         return render_template('home.html')
+        '''
 
 if __name__ == "__main__":
     app.run(debug=True)
