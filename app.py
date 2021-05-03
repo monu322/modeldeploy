@@ -8,14 +8,9 @@ print("Test 2")
 print(os.getcwd())
 path = os.getcwd()
 
-with open('Models/logistic_model.pkl', 'rb') as f:
+with open('Models/log_model.pkl', 'rb') as f:
     logistic = pickle.load(f)
 
-with open('Models/RF_model.pkl', 'rb') as f:
-    randomforest = pickle.load(f)
-
-with open('Models/svm_clf_model.pkl', 'rb') as f:
-    svm_model = pickle.load(f)
 
 
 def get_predictions(price, Tax, Driver_Age, Licence_Length_Years, req_model):
@@ -53,7 +48,7 @@ def my_form_post():
         Tax = request.form['Tax']
         Driver_Age = request.form['Driver_Age']
         Licence_Length_Years = request.form['Licence_Length_Years']
-        req_model = request.form['req_model']
+        req_model = 'Logistic'
 
         target = get_predictions(price, Tax, Driver_Age, Licence_Length_Years, req_model)
 
