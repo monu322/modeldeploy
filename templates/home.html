@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress XmlInvalidId -->
 <html>
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -71,7 +72,7 @@ select {
 
 
 <body>
-<center><h1><font color="white">Insurance Prediction</h1></center>
+<center><h1>Insurance Prediction</h1></center>
 <h2>     </h2>
 
 <div align="center" style="margin-right: 30%;
@@ -127,6 +128,29 @@ select {
     <label for="old">ST depression induced by exercise relative to rest</label>
     <input type="number" id="old" name="max" placeholder="Between 0-10" min="0" max="10" step="1" required>
 
+    <label for="slope">Slope of the peak exercise ST segment</label>
+    <select name="slope">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+
+    <label for="nvessels">Number of major vessels (0-4) colored by flourosopy</label>
+    <select name="nvessels">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <label for="thal">Heart defect</label>
+    <select name="thal">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
 
 
 
@@ -135,8 +159,7 @@ select {
 </form>
 
 <form method="GET">
-    <center><h2><font color="Black"> Sale Category is {{ target}}</h2></center>
-    <center><h2><font color="Black"> {{ sale_making}}</h2></center>
+    <center><h2>{{ heart_defect}}</h2></center>
 </form>
 
 

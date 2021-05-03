@@ -13,22 +13,16 @@ with open('Models/log_model.pkl', 'rb') as f:
 
 
 
-def get_predictions(price, Tax, Driver_Age, Licence_Length_Years, req_model):
-    mylist = [Driver_Age, Tax, price, Licence_Length_Years]
+def get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach,
+       exang, oldpeak, slope, ca, thal, req_model):
+    mylist = [age, sex, cp, trestbps, chol, fbs, restecg, thalach,
+       exang, oldpeak, slope, ca, thal]
     mylist = [float(i) for i in mylist]
     vals = [mylist]
 
     if req_model == 'Logistic':
         #print(req_model)
         return logistic.predict(vals)[0]
-
-    elif req_model == 'RandomForest':
-        #print(req_model)
-        return randomforest.predict(vals)[0]
-
-    elif req_model == 'SVM':
-        #print(req_model)
-        return svm_model.predict(vals)[0]
     else:
         return "Cannot Predict"
 
@@ -44,20 +38,34 @@ def homepage():
 @app.route('/', methods=['POST', 'GET'])
 def my_form_post():
     if request.method == 'POST':
-        price = request.form['price']
-        Tax = request.form['Tax']
-        Driver_Age = request.form['Driver_Age']
-        Licence_Length_Years = request.form['Licence_Length_Years']
+
+
+
+        age = request.form['age']
+        sex = request.form['sex']
+        cp = request.form['cp']
+        rbp = request.form['rbp']
+        chol = request.form['chol']
+        fbs = request.form['fbs']
+        restecg = request.form['restecg']
+        max = request.form['max']
+        exang = request.form['exang']
+        old = request.form['old']
+        slope = request.form['slope']
+        nvessels = request.form['nvessels']
+        thal = request.form['thal']
+
         req_model = 'Logistic'
 
-        target = get_predictions(price, Tax, Driver_Age, Licence_Length_Years, req_model)
+        target = get_predictions(age, sex, cp, rbp, chol, fbs, restecg, max,
+        exang, old, slope, nvessels, thal)
 
         if target==1:
-            sale_making = 'Customer is likely to buy the insurance'
+            heart_defect = 'Patient is likely to have heart defect'
         else:
-            sale_making = 'Customer is unlikely to buy the insurance'
+            heart_defect = 'Patient is unlikely to buy heart defect'
 
-        return render_template('home.html', target = target, sale_making = sale_making)
+        return render_template('home.html', target = target, heart_defect = heart_defect)
     else:
         return render_template('home.html')
 
