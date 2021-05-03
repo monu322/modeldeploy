@@ -3,6 +3,9 @@ from flask import Flask, request, render_template
 import os
 import pickle
 
+# Import the Logistic Regression Module from Scikit Learn
+from sklearn.linear_model import LogisticRegression
+
 print("Test")
 print("Test 2")
 print(os.getcwd())
