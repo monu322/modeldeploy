@@ -3,7 +3,6 @@ from flask import Flask, request, render_template
 import os
 import pickle
 
-
 print("Test")
 print("Test 2")
 print(os.getcwd())
@@ -36,11 +35,11 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/predict', methods=['POST', 'GET'])
 def my_form_post():
     if request.method == 'POST':
 
-        import pdb;
+        import pdb
         pdb.set_trace()
 
         age = request.form['age']
