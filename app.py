@@ -58,7 +58,7 @@ def my_form_post():
         req_model = 'Logistic'
 
         target = get_predictions(age, sex, cp, rbp, chol, fbs, restecg, max,
-        exang, old, slope, nvessels, thal)
+        exang, old, slope, nvessels, thal, req_model)
 
         if target==1:
             heart_defect = 'Patient is likely to have heart defect'
