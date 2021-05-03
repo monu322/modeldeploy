@@ -40,7 +40,8 @@ def homepage():
 def my_form_post():
     if request.method == 'POST':
 
-
+        import pdb;
+        pdb.set_trace()
 
         age = request.form['age']
         sex = request.form['sex']
