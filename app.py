@@ -35,7 +35,7 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/predict', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def my_form_post():
 
     print('Hello predict')
