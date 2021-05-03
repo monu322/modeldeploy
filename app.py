@@ -8,7 +8,7 @@ print("Test 2")
 print(os.getcwd())
 path = os.getcwd()
 
-with open('Models/log_model.pkl', 'rb') as f:
+with open('Models/lr_model.pkl', 'rb') as f:
     logistic = pickle.load(f)
 
 
